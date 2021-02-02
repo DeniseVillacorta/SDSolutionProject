@@ -4,6 +4,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <p></p>
-<h1>Index</h1>
-
+<h1>Buses</h1>
+<p></p>
+@Html.ActionLink("New Bus", "New", "Bus", new { @class = "btn btn-outline-primary" })
+<p></p>
+<table id="employees" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Bus Number</th>
+            <th>Plate Number</th>
+            <th> Driver </th>
+            <th class="text-center"> Delete </th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
