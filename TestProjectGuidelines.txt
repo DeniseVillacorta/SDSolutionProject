@@ -1,0 +1,12 @@
+MVC Test Project of Denise Villacorta updated as of 03/02/2021
+
+Tasks/Constraints
+1. Build Employee and Bus Tables
+2. Set Unique Constraints for EmployeeNo and BusNo
+3. Employee must be assigned to one bus.
+4. Once assigned, employee must not show in creation or editing of bus.
+
+Adjustments
+1. Added IsAssigned boolean to Employee Table - to determine if employee was already assigned.
+2. PlateNo and ContactNo was converted to string - PlateNo (for string char)
+                                                 - ContactNo (int/long not compatible based                                                               on research)

@@ -23,7 +23,7 @@ namespace TestProject.Models.ContextModel
         public int EmployeeNo { get; set; }
 
         [Display(Name = "Contact Number")]
-        public string ContactNo { get; set; }
+        public long ContactNo { get; set; }
         public bool IsAssigned { get; set; }
     }
 }
