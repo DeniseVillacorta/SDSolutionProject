@@ -94,7 +94,7 @@ namespace TestProject.Controllers
             }
             else
             {
-                var busInDB = _context.Buses.Single(b => b.Id == bus.Id);
+                var busInDB = _context.Buses.SingleOrDefault(b => b.Id == bus.Id);
 
                 if (busInDB == null)
                 return HttpNotFound();
@@ -102,7 +102,11 @@ namespace TestProject.Controllers
                 busInDB.BusNo = bus.BusNo;
                 busInDB.PlateNo = bus.PlateNo;
                 busInDB.EmployeeId = bus.EmployeeId;
+
+              
             }
+
+           
 
             _context.SaveChanges();
             return RedirectToAction("Index", "Bus");

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -17,6 +18,7 @@ namespace TestProject.Models.ContextModel
         public string LastName { get; set; }
 
         [Display(Name = "Employee Number")]
+        [Index("EmployeeNumber", IsUnique = true)]
         public int EmployeeNo { get; set; }
 
         [Display(Name = "Contact Number")]

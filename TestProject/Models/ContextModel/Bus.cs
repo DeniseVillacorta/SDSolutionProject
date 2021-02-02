@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,6 +12,7 @@ namespace TestProject.Models.ContextModel
         public int Id { get; set; }
 
         [Display(Name = "Bus Number")]
+        [Index("BusNo", IsUnique = true)]
         public int BusNo { get; set; }
 
         [Display(Name = "Plate Number")]
