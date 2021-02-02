@@ -21,4 +21,56 @@
     <tbody>
     </tbody>
 </table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#employees").DataTable({
+                ajax: {
+                    url: "API/Employees/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "FirstName",
+                        render: function (data, type, Employee) {
+                            return "<a href='/Employee/Edit/" + Employee.Id + "'>" + Employee.FirstName + "</a>";
+                        }
+                    },
+                    {
+                        data: "LastName"
+                    },
+                    {
+                        data: "EmployeeNo"
+                    },
+                    {
+                        data: "ContactNo"
+                    },
+                    {
+                        data: "Id",
+                        className: "text-center",
+                        render: function (data) {
+                            return "<button class=' btn btn-outline-primary js-delete' data-employee-id=" + data + "> Delete </button>";
+                        }
+                    }
+                ]
+            });
+        });
 
+        $("#employees").on("click", ".js-delete", function () {
+            var button = $(this);
+
+            bootbox.confirm("Would you like to delete this employee?", function (result) {
+                if (result) {
+                    $.ajax({
+                        url: "API/Employees/" + button.attr("data-employee-id"),
+                        method: "DELETE",
+                        success: function () {
+                            button.parents("tr").remove();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
