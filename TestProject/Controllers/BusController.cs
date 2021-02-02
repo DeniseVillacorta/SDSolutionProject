@@ -96,7 +96,7 @@ namespace TestProject.Controllers
             }
 
             _context.SaveChanges();
-            return RedirectToAction("Index", "Employee");
+            return RedirectToAction("Index", "Bus");
         }
     }
 }
