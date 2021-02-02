@@ -69,5 +69,34 @@ namespace TestProject.Controllers
 
             return RedirectToAction("Index", "Bus");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Bus bus)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("BusForm");
+            }
+
+            if (bus.Id == 0)
+            {
+                _context.Buses.Add(bus);
+            }
+            else
+            {
+                var busInDB = _context.Buses.Single(b => b.Id == bus.Id);
+
+                if (busInDB == null)
+                return HttpNotFound();
+
+                busInDB.BusNo = bus.BusNo;
+                busInDB.PlateNo = bus.PlateNo;
+                busInDB.EmployeeId = bus.EmployeeId;
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Employee");
+        }
     }
 }

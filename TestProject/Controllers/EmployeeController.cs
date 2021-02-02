@@ -65,5 +65,36 @@ namespace TestProject.Controllers
 
             return RedirectToAction("Index", "Employee");
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Employee employee)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("EmployeeForm");
+            }
+
+            if (employee.Id == 0)
+            {
+                _context.Employees.Add(employee);
+            }
+            else
+            {
+                var employeeInDB = _context.Employees.Single(e => e.Id == employee.Id);
+
+                if (employeeInDB == null)
+                    return HttpNotFound();
+
+                employeeInDB.FirstName = employee.FirstName;
+                employeeInDB.LastName = employee.LastName;
+                employeeInDB.EmployeeNo = employee.EmployeeNo;
+                employeeInDB.ContactNo = employee.ContactNo;
+               
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Employee");
+        }
     }
 }
