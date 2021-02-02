@@ -18,11 +18,12 @@ namespace TestProject.Models.ContextModel
         public string LastName { get; set; }
 
         [Display(Name = "Employee Number")]
+        [Range(0, 999999999999999)]
         [Index("EmployeeNumber", IsUnique = true)]
         public int EmployeeNo { get; set; }
 
         [Display(Name = "Contact Number")]
-        public int ContactNo { get; set; }
+        public string ContactNo { get; set; }
         public bool IsAssigned { get; set; }
     }
 }
