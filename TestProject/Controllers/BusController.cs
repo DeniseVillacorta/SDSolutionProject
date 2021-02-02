@@ -103,7 +103,10 @@ namespace TestProject.Controllers
                 busInDB.PlateNo = bus.PlateNo;
                 busInDB.EmployeeId = bus.EmployeeId;
 
-              
+                var employee = _context.Employees.Where(b => b.Id == busInDB.EmployeeId).FirstOrDefault();
+                bus.Employee = employee;
+                bus.Employee.IsAssigned = true;
+
             }
 
            
