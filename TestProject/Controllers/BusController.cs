@@ -64,7 +64,12 @@ namespace TestProject.Controllers
             if (bus == null)
                 return HttpNotFound();
 
+           
+
             _context.Buses.Remove(bus);
+            var employee = _context.Employees.Where(b => b.Id == bus.EmployeeId && b.IsAssigned == true).FirstOrDefault();
+            bus.Employee = employee;
+            bus.Employee.IsAssigned = false;
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Bus");

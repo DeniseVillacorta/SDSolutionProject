@@ -81,6 +81,10 @@ namespace TestProject.Controllers.API
             if (bus == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
+            var employee = _context.Employees.Where(b => b.Id == bus.EmployeeId && b.IsAssigned == true).FirstOrDefault();
+            bus.Employee = employee;
+            bus.Employee.IsAssigned = false;
+
             _context.Buses.Remove(bus);
             _context.SaveChanges();
         }
