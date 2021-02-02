@@ -9,5 +9,6 @@ namespace TestProject.Models.ViewModel.Buses
     public class BusFormViewModel
     {
         public Bus Bus { get; set; }
+        public IEnumerable<Employee> Employees { get; set; }
     }
 }
