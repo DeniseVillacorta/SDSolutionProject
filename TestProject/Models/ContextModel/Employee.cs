@@ -21,5 +21,6 @@ namespace TestProject.Models.ContextModel
 
         [Display(Name = "Contact Number")]
         public int ContactNo { get; set; }
+        public bool IsAssigned { get; set; }
     }
 }

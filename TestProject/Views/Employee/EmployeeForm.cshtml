@@ -31,7 +31,7 @@
 
     <div class="form-group">
         @Html.LabelFor(e => e.Employee.ContactNo)
-        @Html.TextBoxFor(e => e.Employee.ContactNo, "{0:#.#}", new { @class = "form-control" })
+        @Html.TextBoxFor(e => e.Employee.ContactNo,new { @class = "form-control" })
         @Html.ValidationMessageFor(e => e.Employee.ContactNo)
     </div>
 

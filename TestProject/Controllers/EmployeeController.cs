@@ -70,6 +70,7 @@ namespace TestProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Employee employee)
         {
+
             if (!ModelState.IsValid)
             {
                 return View("EmployeeForm");
@@ -77,13 +78,14 @@ namespace TestProject.Controllers
 
             if (employee.Id == 0)
             {
+                employee.IsAssigned = false;
                 _context.Employees.Add(employee);
-                
 
             }
             else
             {
                 var employeeInDB = _context.Employees.Single(e => e.Id == employee.Id);
+                                                     
 
                 if (employeeInDB == null)
                     return HttpNotFound();
@@ -99,4 +101,6 @@ namespace TestProject.Controllers
             return RedirectToAction("Index", "Employee");
         }
     }
+  
 }
+

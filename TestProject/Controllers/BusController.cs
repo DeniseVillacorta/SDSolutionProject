@@ -79,8 +79,12 @@ namespace TestProject.Controllers
                 return View("BusForm");
             }
 
+
             if (bus.Id == 0)
             {
+                var employee = _context.Employees.Where(b => b.Id == bus.EmployeeId).FirstOrDefault();
+                bus.Employee = employee;
+                bus.Employee.IsAssigned = true;
                 _context.Buses.Add(bus);
             }
             else

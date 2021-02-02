@@ -14,7 +14,7 @@ namespace TestProject.Models.ContextModel
         public int BusNo { get; set; }
 
         [Display(Name = "Plate Number")]
-        public int PlateNo { get; set; }
+        public string PlateNo { get; set; }
         public Employee Employee { get; set; }
 
         [Display(Name = "Employee Driver")]
