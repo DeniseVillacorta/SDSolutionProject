@@ -66,7 +66,9 @@ namespace TestProject.Controllers.API
             if (busToUpdate == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            bus.Employee.IsAssigned = false;
+            var employee = _context.Employees.Where(b => b.Id == busToUpdate.EmployeeId && b.IsAssigned == false).FirstOrDefault();
+            bus.Employee = employee;
+            bus.Employee.IsAssigned = true;
 
             _context.SaveChanges();
         }
