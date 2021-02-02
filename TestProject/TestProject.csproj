@@ -189,6 +189,10 @@
     <Compile Include="Models\ContextModel\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ViewModel\Buses\BusFormViewModel.cs" />
+    <Compile Include="Models\ViewModel\Buses\BusViewModel.cs" />
+    <Compile Include="Models\ViewModel\Employees\EmployeeFormViewModel.cs" />
+    <Compile Include="Models\ViewModel\Employees\EmployeeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
